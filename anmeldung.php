@@ -113,11 +113,12 @@ if (!empty($_GET['teamsportart'])) {
         <md-content>
             <md-tabs md-stretch-tabs="always">
 
-                <md-tab label="Einzelsportart">
+                <md-tab label="Teamsportart">
                     <div class="anmeldung_grid_container">
                         <h2 class="anmeldung_grid_header1">Sportart</h2>
                         <?php
-                        echo "<radio-button-group class='anmeldung_grid_radio' name='einzelsportart' rows='"
+                        /*Teamsportart(?) Sportartnamen einfügen*/
+                        echo "<radio-button-group class='anmeldung_grid_radio' name='teamsportart' rows='"
                             . json_encode($result_gruppe_besetzt + $result_gruppe_nicht)
                             . "'></radio-button-group>";
                         ?>
@@ -126,9 +127,11 @@ if (!empty($_GET['teamsportart'])) {
                         <div class="anmeldung_grid_teilnehmer">
 
                             <?php
+                            /*Anzahl der bereits Angemeldeten zu dieser Sportart aus einer Klasse */
                             foreach ($result_gruppe_besetzt as $row) {
                                 echo "<p>" . $row['count(fk_pk_userid)'] . "/" . $row['anzteilnehmer'] . "</p>";
                             }
+                            /*Anzahl der max Teilnehmeranzahl zu dieser Sportart*/
                             foreach ($result_gruppe_nicht as $row) {
                                 echo "<p> 0/" . $row['anzteilnehmer'] . "</p>";
                             }
@@ -138,18 +141,16 @@ if (!empty($_GET['teamsportart'])) {
                     </div>
                 </md-tab>
 
-                <md-tab label="Teamsportart">
+                <md-tab label="Einzelsportart">
 
                     <div class="anmeldung_grid_container">
                         <h2 class="anmeldung_grid_header1">Sportart</h2>
                         <md-radio-group class="anmeldung_grid_radio">
                             <?php
-                            foreach ($result_einzel_besetzt as $row) {
-                                echo "<radio-button name=\"einzelsportart\" value1=\"" . $row['pk_name'] . "\">" . $row['pk_name'] . "</radio-button>";
-                            }
-                            foreach ($result_einzel_nicht as $row) {
-                                echo "<radio-button name=\"einzelsportart\" value1=\"" . $row['pk_name'] . "\">" . $row['pk_name'] . "</radio-button>";
-                            }
+                            /*Einzelsportart(?) Namen einfügen*/
+                            echo "<radio-button-group class='anmeldung_grid_radio' name='einzelsportart' rows='"
+                                . json_encode($result_einzel_besetzt + $result_einzel_nicht)
+                                . "'></radio-button-group>";
                             ?>
                         </md-radio-group>
                         <h2 class="anmeldung_grid_header2">Teilnehmer</h2>
