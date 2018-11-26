@@ -86,7 +86,7 @@ if (!empty($_GET['teamsportart'])) {
     <script src="vendor/angular-ui-router-1.0.18/angular-ui-router.min.js"></script>
 
     <script src="app.js"></script>
-    <script src="radio-button.js"></script>
+    <script src="components/radio-button.js"></script>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Barlow">
     <link rel="stylesheet" href="css/app_anmeldung.css">
@@ -119,10 +119,10 @@ if (!empty($_GET['teamsportart'])) {
                         <md-radio-group ng-model="data.group2" class="anmeldung_grid_radio">
                             <?php
                             foreach ($result_gruppe_besetzt as $row) {
-                                echo "<radio-button name='einzelsportart' value='$row\['pk_name']'> </radio-button>";
+                                echo "<radio-button name=\"einzelsportart\" value=\"" . $row['pk_name'] . "\">" . $row['pk_name'] . "</radio-button>";
                             }
                             foreach ($result_gruppe_nicht as $row) {
-                                echo "<radio-button name='einzelsportart' value='$row\['pk_name']'> </radio-button>";
+                                echo "<radio-button name=\"einzelsportart\" value=\"" . $row['pk_name'] . "\">" . $row['pk_name'] . "</radio-button>";
                             }
                             ?>
                         </md-radio-group>
@@ -150,10 +150,10 @@ if (!empty($_GET['teamsportart'])) {
                         <md-radio-group class="anmeldung_grid_radio">
                             <?php
                             foreach ($result_einzel_besetzt as $row) {
-                                echo "<radio-button name='teamsportart' value='$row\['pk_name']'> </radio-button>";
+                                echo "<radio-button name=\"einzelsportart\" value=\"" . $row['pk_name'] . "\">" . $row['pk_name'] . "</radio-button>";
                             }
                             foreach ($result_einzel_nicht as $row) {
-                                echo "<radio-button name='teamsportart' value='$row\['pk_name']'> </radio-button>";
+                                echo "<radio-button name=\"einzelsportart\" value=\"" . $row['pk_name'] . "\">" . $row['pk_name'] . "</radio-button>";
                             }
                             ?>
                         </md-radio-group>
