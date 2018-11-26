@@ -1,0 +1,33 @@
+<style>
+    .rgb-wert #erg {
+        height: 2em;
+        border: 1px solid gray;
+        text-align: center;
+    }
+    img {
+        width: 80%;
+    }
+</style>
+
+<div class="rgb-wert" flex="50">
+    <mein-slider label="rot"
+                 wert-aenderung="$ctrl.rot = wert">
+        <!--wert-aenderung="$ctrl.aendereErg(wert, $ctrl.gruen, $ctrl.blau)"-->
+        <img src="components/images/pinsel_rot.png" alt="Pinsel" >
+    </mein-slider>
+    <mein-slider label="grün"
+                 wert-aenderung="$ctrl.gruen = wert">
+        <!--wert-aenderung="$ctrl.aendereErg($ctrl.rot, wert, $ctrl.blau)">-->
+        <img src="components/images/pinsel_grun.png" alt="Pinsel" >
+    </mein-slider>
+    <mein-slider label="blau" id="blau"
+                 wert-aenderung="$ctrl.blau = wert">
+        <!--wert-aenderung="$ctrl.aendereErg($ctrl.rot, $ctrl.gruen, wert)">-->
+        <img src="components/images/pinsel_blau.png" alt="Pinsel" >
+    </mein-slider>
+
+    <div id="erg" style="background-color: {{ $ctrl.hexFarbe() }}; color: {{$ctrl.schriftfarbe}}">
+        {{ $ctrl.hexFarbe() }} --> {{$ctrl.farbname}}
+    </div>
+
+</div>

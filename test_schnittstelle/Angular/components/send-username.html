@@ -1,0 +1,10 @@
+<md-input-container>
+    <label>Username</label>
+    <input type="text" id="form_username" name="username" ng-model="$ctrl.frm_username" />
+</md-input-container>
+
+<md-button class="md-raised md-primary" ng-click="$ctrl.submit()">
+    Senden
+</md-button>
+
+<div>{{ $ctrl.status }}</div>

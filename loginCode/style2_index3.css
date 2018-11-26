@@ -1,0 +1,108 @@
+@font-face {
+    font-family: BarlowMedium;
+    src: url("fonts/Barlow-Medium.ttf");
+}
+
+@font-face {
+    font-family: BarlowLight;
+    src: url("fonts/Barlow-Light.ttf")
+}
+
+* {
+    font-family: BarlowLight !important;
+}
+
+body {
+    background-image: url("bilder/SW_Background.jpg");
+    background-size: cover;
+    background-position-y: bottom;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+h1 {
+    font-size: 55px;
+    color: black;
+    text-align: center;
+}
+
+h2 {
+    font-size: 30px;
+    text-align: center;
+    color: black;
+    width: 800px;
+    text-wrap: normal;
+}
+
+.md-raised {
+    background-color: #E53B20 !important;
+    color: white !important;
+}
+
+img {
+    width: 150px;
+    height: auto;
+}
+
+.md-whiteframe-5dp {
+    background-color: white;
+    opacity: 0.9;
+    border-radius: 10px;
+}
+
+@media screen and (max-width: 600px) {
+    body {
+        background-image: url("bilder/SW_Background_Mobil.jpg");
+    }
+
+    h1 {
+        font-size: 32px;
+        text-align: center;
+    }
+
+    h2 {
+        font-size: 24px;
+        width: auto;
+    }
+
+    #sportfest {
+        font-size: 200%;
+    }
+
+    img {
+        width: 130px;
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    h1 {
+        font-size: 25px;
+        text-align: center;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    #sportfest {
+        font-size: 200%;
+    }
+
+    img {
+        width: 95px;
+        height: auto;
+    }
+
+    .md-whiteframe-5dp {
+        margin-top: -5%;
+        min-height: 82% !important;
+    }
+}
+
+
+

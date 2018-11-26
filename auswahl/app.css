@@ -1,0 +1,152 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    font-family: "Barlow Medium";
+}
+body{
+    background-color: #B4B3B3;
+
+}
+
+/*Farben definieren*/
+    md-tabs md-ink-bar {
+        color: #B4B3B3 !important;
+        background: #B4B3B3 !important;
+    }
+
+    md-tabs.md-default-theme .md-tab.md-active, md-tabs .md-tab.md-active, md-tabs.md-default-theme .md-tab.md-active md-icon, md-tabs .md-tab.md-active md-icon, md-tabs.md-default-theme .md-tab.md-focused, md-tabs .md-tab.md-focused, md-tabs.md-default-theme .md-tab.md-focused md-icon, md-tabs .md-tab.md-focused md-icon {
+        color: #E53B20 !important;
+    }
+
+    .md-raised {
+        background-color: #E53B20 !important;
+        color: white !important;
+    }
+/*Farben Ende*/
+
+/*nav*/
+    #nav-whiteframe {
+        background-color: #FFFFFF;
+        width: 100%;
+        height: 10vh;
+        padding: 0px 20px;
+    }
+
+    img{
+        height:50px;
+    }
+/*nav Ende*/
+
+/*Anmeldung Schriften*/
+    #sportart_anmeldung h1 {
+        color: white;
+        font-size: 20px;
+    }
+
+    #anmeldung h2 {
+        font-weight: normal;
+        font-size: 15px;
+        padding-bottom: 10px;
+
+        font-family: "Barlow Medium";
+    }
+/*Anmeldung Schriften Ende*/
+
+/*Anmeldung ausrichten*/
+    #sportart_anmeldung {
+        height: 100vh;
+    }
+
+    #anmeldung_h1 {
+        width: 100%;
+        height: 22vh;
+        padding: 10px;
+
+        text-align: center;
+    }
+
+    #anmeldung_whiteframe {
+        width: 100%;
+        height: 330px;
+        position: fixed;
+        bottom: 8.3vh;
+    }
+
+    md-tabs {
+        height: 330px;
+    }
+
+    md-radio-button {
+        padding: 0px 10px;
+    }
+
+    #button_sportart_anmeldung {
+        position: fixed;
+        left:0px;
+        bottom: 0px;
+        margin: 0px;
+
+        width: 100%;
+        height: 8vh;
+    }
+/*Anmeldung ausrichten Ende*/
+
+/*Grid*/
+    .anmeldung_grid_container {
+        padding: 15px 0px 0px 35px;
+
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: auto;
+        grid-template-areas:
+                "header1 header2"
+                "anmeldung_radio teinehmer"
+    ;
+    }
+
+    .anmeldung_grid_header1 {
+        grid-area: header1;
+        padding-left: 40px;
+    }
+
+    .anmeldung_grid_header2 {
+        grid-area: header2;
+        justify-self: center;
+    }
+
+    .anmeldung_grid_radio {
+        grid-area: anmeldung_radio;
+    }
+
+    .anmeldung_grid_teilnehmer {
+        grid-area: teinehmer;
+        justify-self: center;
+    }
+
+    .anmeldung_grid_teilnehmer p {
+        padding-bottom: 18px;
+    }
+/*Grid Ende*/
+
+@media screen and (min-width: 600px) {
+    #anmeldung_whiteframe {
+        width: 40%;
+        height: 60vh;
+
+        position: static;
+    }
+
+    md-tabs {
+        height: 60vh;
+    }
+
+    #anmeldung_h1 h1 {
+        font-size: 35px;
+    }
+
+    #button_sportart_anmeldung {
+        position: static;
+        width: 15%;
+        margin: 20px;
+    }
+}

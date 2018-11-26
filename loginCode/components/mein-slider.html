@@ -1,0 +1,14 @@
+<div>
+    <md-slider-container>
+        <span>{{$ctrl.label }}</span>
+        <md-input-container flex="15">
+            <input type="number"
+                   ng-model="$ctrl.farb"
+                   ng-change="$ctrl.geaendert()"> <!--ohne ng-model funktioniert ng-change auch nicht -->
+        </md-input-container>
+        <md-slider min="0" max="255"
+                   ng-model="$ctrl.farb"
+                   ng-change="$ctrl.geaendert()">
+        </md-slider>
+    </md-slider-container>
+</div>
