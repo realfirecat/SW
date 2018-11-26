@@ -7,6 +7,10 @@ body{
     background-color: #B4B3B3;
 }
 
+radio-button {
+    color: black;
+}
+
 /*Farben definieren*/
     md-tabs md-ink-bar {
         color: #B4B3B3 !important;
