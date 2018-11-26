@@ -86,7 +86,7 @@ if (!empty($_GET['teamsportart'])) {
     <script src="vendor/angular-ui-router-1.0.18/angular-ui-router.min.js"></script>
 
     <script src="app.js"></script>
-    <script src="radio-button.js"></script>
+    <script src="/components/radio-button.js"></script>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Barlow">
     <link rel="stylesheet" href="css/app_anmeldung.css">
