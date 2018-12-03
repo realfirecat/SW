@@ -1,0 +1,5 @@
+<md-radio-group class="{{ $ctrl.class }}" name="{{ $ctrl.name }}" ng-model="$ctrl.radio">
+    <md-radio-button ng-repeat="row in $ctrl.rows" ng-value="row.pk_name" >
+        {{ row.pk_name }}
+    </md-radio-button>
+</md-radio-group>

@@ -16,12 +16,6 @@ $result_einzel_besetzt = $db->abfrage("SELECT count(fk_pk_userid),fk_pk_name, an
         WHERE (klassencode='" . $klassencode . "' and fk_pk_id=2)
         GROUP BY fk_pk_name", [])->fetchAll();
 
-/*foreach ($result_gruppe as $row) {
-    echo $row['fk_pk_name'];
-    echo $row['count(fk_pk_userid)'];
-    echo $row['anzteilnehmer'];
-}
-echo "<br>";*/
 
 
 $result_gruppe_nicht = $db->abfrage("SELECT pk_name, anzteilnehmer FROM Sportart WHERE pk_name NOT IN (SELECT fk_pk_name FROM BenutzerSportart
@@ -30,6 +24,11 @@ $result_gruppe_nicht = $db->abfrage("SELECT pk_name, anzteilnehmer FROM Sportart
 	INNER JOIN Klasse ON fk_pk_jahrgang=pk_jahrgang AND fk_pk_buchstabe=pk_buchstabe AND fk_pk_fk_pk_kuerzel=pk_fk_pk_kuerzel 
 	WHERE (klassencode='" . $klassencode . "' and fk_pk_id=1)
 	GROUP BY fk_pk_name) AND fk_pk_id=1", [])->fetchAll();
+/*echo json_encode($result_gruppe_nicht);
+foreach ($result_gruppe_nicht as $row) {
+    echo $row['pk_name'];
+}
+echo "<br>";*/
 
 $result_einzel_nicht = $db->abfrage("SELECT pk_name, anzteilnehmer FROM Sportart WHERE pk_name NOT IN (SELECT fk_pk_name FROM BenutzerSportart
         INNER JOIN Sportart ON fk_pk_name=pk_name 
@@ -86,11 +85,8 @@ if (!empty($_GET['teamsportart'])) {
     <script src="vendor/angular-ui-router-1.0.18/angular-ui-router.min.js"></script>
 
     <script src="app.js"></script>
-<<<<<<< HEAD
-    <script src="/components/radio-button.js"></script>
-=======
     <script src="components/radio-button.js"></script>
->>>>>>> 592fad624e60c5d6f15b4de0e4732dcbd589d6fb
+    <script src="components/radio-button-group.js"></script>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Barlow">
     <link rel="stylesheet" href="css/app_anmeldung.css">
@@ -117,27 +113,25 @@ if (!empty($_GET['teamsportart'])) {
         <md-content>
             <md-tabs md-stretch-tabs="always">
 
-                <md-tab label="Einzelsportart">
+                <md-tab label="Teamsportart">
                     <div class="anmeldung_grid_container">
                         <h2 class="anmeldung_grid_header1">Sportart</h2>
-                        <md-radio-group ng-model="data.group2" class="anmeldung_grid_radio">
-                            <?php
-                            foreach ($result_gruppe_besetzt as $row) {
-                                echo "<radio-button name=\"einzelsportart\" value=\"" . $row['pk_name'] . "\">" . $row['pk_name'] . "</radio-button>";
-                            }
-                            foreach ($result_gruppe_nicht as $row) {
-                                echo "<radio-button name=\"einzelsportart\" value=\"" . $row['pk_name'] . "\">" . $row['pk_name'] . "</radio-button>";
-                            }
-                            ?>
-                        </md-radio-group>
+                        <?php
+                        /*Teamsportart(?) Sportartnamen einfügen*/
+                        echo "<radio-button-group class='anmeldung_grid_radio' name='teamsportart' rows='"
+                            . json_encode($result_gruppe_besetzt + $result_gruppe_nicht)
+                            . "'></radio-button-group>";
+                        ?>
 
                         <h2 class="anmeldung_grid_header2">Teilnehmer</h2>
                         <div class="anmeldung_grid_teilnehmer">
 
                             <?php
+                            /*Anzahl der bereits Angemeldeten zu dieser Sportart aus einer Klasse */
                             foreach ($result_gruppe_besetzt as $row) {
                                 echo "<p>" . $row['count(fk_pk_userid)'] . "/" . $row['anzteilnehmer'] . "</p>";
                             }
+                            /*Anzahl der max Teilnehmeranzahl zu dieser Sportart*/
                             foreach ($result_gruppe_nicht as $row) {
                                 echo "<p> 0/" . $row['anzteilnehmer'] . "</p>";
                             }
@@ -147,25 +141,16 @@ if (!empty($_GET['teamsportart'])) {
                     </div>
                 </md-tab>
 
-                <md-tab label="Teamsportart">
+                <md-tab label="Einzelsportart">
 
                     <div class="anmeldung_grid_container">
                         <h2 class="anmeldung_grid_header1">Sportart</h2>
                         <md-radio-group class="anmeldung_grid_radio">
                             <?php
-                            foreach ($result_einzel_besetzt as $row) {
-<<<<<<< HEAD
-                                echo "<radio-button name=\"teamsportart\" value=\"" . $row['pk_name'] . "\">" . $row['pk_name'] . "</radio-button>";
-                            }
-                            foreach ($result_einzel_nicht as $row) {
-                                echo "<radio-button name=\"teamsportart\" value=\"" . $row['pk_name'] . "\">" . $row['pk_name'] . "</radio-button>";
-=======
-                                echo "<radio-button name=\"einzelsportart\" value=\"" . $row['pk_name'] . "\">" . $row['pk_name'] . "</radio-button>";
-                            }
-                            foreach ($result_einzel_nicht as $row) {
-                                echo "<radio-button name=\"einzelsportart\" value=\"" . $row['pk_name'] . "\">" . $row['pk_name'] . "</radio-button>";
->>>>>>> 76da3fe99bce357d1e93a80005e4f9724aa8ec8a
-                            }
+                            /*Einzelsportart(?) Namen einfügen*/
+                            echo "<radio-button-group class='anmeldung_grid_radio' name='einzelsportart' rows='"
+                                . json_encode($result_einzel_besetzt + $result_einzel_nicht)
+                                . "'></radio-button-group>";
                             ?>
                         </md-radio-group>
                         <h2 class="anmeldung_grid_header2">Teilnehmer</h2>
