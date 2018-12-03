@@ -150,10 +150,10 @@ if (!empty($_GET['teamsportart'])) {
                         <md-radio-group class="anmeldung_grid_radio">
                             <?php
                             foreach ($result_einzel_besetzt as $row) {
-                                echo "<radio-button name=\"teamsportart\" value=\"" . $row['pk_name'] . "\">" . $row['pk_name'] . "</radio-button>";
+                                echo "<radio-button name=\"einzelsportart\" value=\"" . $row['pk_name'] . "\">" . $row['pk_name'] . "</radio-button>";
                             }
                             foreach ($result_einzel_nicht as $row) {
-                                echo "<radio-button name=\"teamsportart\" value=\"" . $row['pk_name'] . "\">" . $row['pk_name'] . "</radio-button>";
+                                echo "<radio-button name=\"einzelsportart\" value=\"" . $row['pk_name'] . "\">" . $row['pk_name'] . "</radio-button>";
                             }
                             ?>
                         </md-radio-group>

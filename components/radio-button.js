@@ -5,7 +5,7 @@ app.component("radioButton", {
     controller: "RadioButtonController",
     binding: {
         name: "@",
-        values: "@"
+        value: "@"
     }
 });
 
@@ -13,5 +13,4 @@ app.component("radioButton", {
 app.controller("RadioButtonController", function ($log) {
 
     $log.debug("RadioButtonController()");
-
 });
