@@ -46,4 +46,5 @@ class Database {
     function getDb() {
         return $this->db;
     }
+    /* hashhhahah */
 }
