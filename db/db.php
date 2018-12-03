@@ -46,4 +46,8 @@ class Database {
     function getDb() {
         return $this->db;
     }
+    
+    /*
+        hallo, max
+    */
 }
