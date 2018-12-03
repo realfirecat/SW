@@ -8,7 +8,7 @@ app.controller("SendUsernameController", function($http){
 
     this.submit = () => {
         let parameter = JSON.stringify({username:this.frm_username});
-        let  url = "https://10.14.28.142/test_schnittstelle/AjaxVanillaJS/register.php";
+        let  url = "http://localhost/ServiceDemos/AjaxVanillaJS/register.php";
 
         $http({
             method: 'POST',
