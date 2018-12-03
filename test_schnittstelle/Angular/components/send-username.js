@@ -3,12 +3,12 @@ app.component("sendUsername", {
     controller: "SendUsernameController"
 });
 
-app.controller("SendUsernameController", function($http){
+app.controller("SendUsernameController", function($http) {
     this.status = "You did not submit anything yet.";
 
     this.submit = () => {
-        let parameter = JSON.stringify({username:this.frm_username});
-        let  url = "http://10.14.28.142/test_schnittstelle/AjaxVanillaJS/register.php";
+        let parameter = JSON.stringify({username: this.frm_username});
+        let url = "http://10.14.28.142/test_schnittstelle/AjaxVanillaJS/register.php";
 
         $http({
             method: 'POST',
@@ -16,10 +16,10 @@ app.controller("SendUsernameController", function($http){
             data: parameter
         }).then(
             (response) => {
-            console.log(response);
-            this.status = response.data.infotext;
-        },function (error){
-            console.log(error);
-        });
+                console.log(response);
+                this.status = response.data.infotext;
+            }, function (error) {
+                console.log(error);
+            });
     }
-});
+}
