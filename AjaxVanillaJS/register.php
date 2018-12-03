@@ -6,8 +6,9 @@ $json = file_get_contents('php://input');
 $obj = json_decode($json, true);
 
 // Data has been sent and should be processed
-if(isset($obj['username'])){
-    $username = $obj['username'];
+if(isset($obj['teamsportart'])){
+    $teamsportart = $obj['teamsportart'];
+    $einzelsportart = $obj['einzelsportart'];
 
     // TODO "write $username into the Database";
 $jsonresponse = <<<jsonresponse
